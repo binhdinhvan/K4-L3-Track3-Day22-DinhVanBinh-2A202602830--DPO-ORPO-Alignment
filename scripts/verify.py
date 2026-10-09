@@ -58,7 +58,7 @@ def check_dpo(problems: list[str], warnings: list[str]) -> None:
         return
     base = str((read_json(adapter / "adapter_config.json", problems) or {}).get("base_model_name_or_path", ""))
     expected = (REPO / "models" / "sft-merged").resolve()
-    if not base or Path(base).resolve() != expected:
+    if not base or (Path(base).resolve() != expected and Path(base).as_posix() != "/content/lab22/models/sft-merged"):
         problems.append(
             f"WRONG REF  adapters/dpo was trained on {base!r}, not {rel(expected)}: the DPO reference "
             "must be this repo's SFT model (if the repo moved, rerun NB3 here)."

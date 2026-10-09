@@ -43,6 +43,11 @@ hf_cache/
 .env
 .env.local
 *.token
+.venv
+.venv/
+venv/
+*.zip
+ket_qua_lab22/
 
 # Editor / OS
 .DS_Store
